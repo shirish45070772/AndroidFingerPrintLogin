@@ -18,11 +18,30 @@
         android:background="#add8e6"
         android:src="@drawable/ic_fp_40px"/>
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorBlack"
         android:text="@string/login_with_fingerprint"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_30sdp"/>
+
+    <ImageView
+        android:id="@+id/nfc_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/nfcicon"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:text="@string/login_with_nfc"
         android:textSize="@dimen/_20sdp"
         android:textStyle="bold"
         android:layout_marginTop="@dimen/_30sdp"/>

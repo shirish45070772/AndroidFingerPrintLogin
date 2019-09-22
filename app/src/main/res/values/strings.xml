@@ -12,7 +12,10 @@
     <string name="email_hint">Email</string>
     <string name="username_hint">Username</string>
     <string name="with_fingerprint">With Fingerprint</string>
+    <string name="with_nfc">With NFC</string>
     <string name="with_fingerprint_and_password">With Fingerprint and Password</string>
+    <string name="with_nfc_and_password">With NFC and Password</string>
     <string name="login_with_fingerprint">LOGIN WITH FINGERPRINT</string>
+    <string name="login_with_nfc">LOGIN WITH NFC</string>
     <string name="login_now">LOGIN</string>
 </resources>

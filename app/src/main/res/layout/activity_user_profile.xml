@@ -1,21 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_user_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:baselineAligned="false"
     android:gravity="center"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.inducesmile.androidfingerprintlogin.UserProfileActivity">
 
     <TextView
+        android:id="@+id/accounts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="ACCOUNTS"
         android:textColor="@color/colorBlack"
-        android:id="@+id/user_bio"/>
+        android:textSize="20dp" />
 
-</LinearLayout>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#adbce6"
+        android:gravity="left|center_vertical"
+        android:text="Saver                                                                12-34-56 51704972 \n                                                                            £99,999,999,999.99"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#ade6d8"
+        android:gravity="left|center_vertical"
+        android:text="Advance                                                          78-90-12 07593640 \n                                                                                                 £999.99"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorBlue"
+        android:gravity="left|center_vertical"
+        android:text="Credit Card                                                    **** **** **** 1023 \n                                                                                                  £523.68 \n                                        Minimum amount due : 20 Sep 2019"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="100dp"
+        android:layout_height="@dimen/_75sdp"
+
+        android:paddingBottom="0dp"
+
+        app:srcCompat="@drawable/ic_face" />
+
+
+    <!--    <Button-->
+    <!--        -->
+    <!--    <com.github.mmin18.widget.RealtimeBlurView-->
+    <!--        android:id="@+id/blurringEffect"-->
+    <!--        android:layout_width="matchparent"-->
+    <!--        android:layout_height="matchparent"-->
+    <!--      -->
+    <!--        android:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        android:layout_constraintEnd_toEndOf="parent"-->
+    <!--        android:realtimeBlurRadius="100dp"-->
+    <!--        android:realtimeOverlayColor="#8000" />-->
+    <!--    -->
+    <!--    -->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Click to hide" -->
+    <!--    -->
+    <!--    />-->
+
+
+</>

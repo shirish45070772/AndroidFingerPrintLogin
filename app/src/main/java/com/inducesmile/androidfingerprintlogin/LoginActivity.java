@@ -1,13 +1,17 @@
 package com.inducesmile.androidfingerprintlogin;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.KeyguardManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
+import android.media.Image;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.security.keystore.KeyGenParameterSpec;
@@ -23,6 +27,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -36,6 +41,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
+import java.util.HashMap;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -45,7 +51,8 @@ import javax.crypto.SecretKey;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
-
+    private NfcAdapter nfcAdapter;
+    private PendingIntent pendingIntent;
     private FingerprintManager fingerprintManager;
     private KeyguardManager keyguardManager;
     private KeyStore keyStore;
@@ -99,6 +106,45 @@ public class LoginActivity extends AppCompatActivity {
                 fingerprintHandler.completeFingerAuthentication(fingerprintManager, cryptoObject);
             }
         });
+
+
+        this.nfcAdapter = NfcAdapter.getDefaultAdapter((Context)this);
+        if (nfcAdapter == null) {
+            Toast.makeText((Context)this, (CharSequence)"No NFC",Toast.LENGTH_SHORT).show();
+
+        }
+        else pendingIntent = PendingIntent.getActivity((Context)this,
+
+
+                0,new Intent(this,UserProfileActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),0);
+
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        NfcAdapter nfcAdapterRefCopy = this.nfcAdapter;
+        if (nfcAdapterRefCopy != null) {
+            if (!nfcAdapterRefCopy.isEnabled()) {
+                Toast.makeText((Context)this, (CharSequence)"Please enable NFC on your Device",Toast.LENGTH_SHORT).show();
+                finish();
+                return;
+            }
+
+            nfcAdapterRefCopy.enableForegroundDispatch((Activity)this, this.pendingIntent, null, null);
+        }
+
+    }
+
+    @Override
+    protected  void onPause(){
+        super.onPause();
+        if(nfcAdapter!=null)
+        {
+            nfcAdapter.disableForegroundDispatch(this);
+        }
     }
 
     private void checkDeviceFingerprintSupport() {
@@ -269,5 +315,9 @@ public class LoginActivity extends AppCompatActivity {
         });
         openDialog.show();
     }
+
+
+
+
 
 }
